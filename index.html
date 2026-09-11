@@ -16,13 +16,13 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+Antique:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#20201e; --sub:#726f69; --paper:#ffffff; --mist:#f6f4f0; --line:#e8e4dc;
     --accent:#b4573b; --accent-soft:#f3e6df; --radius:2px; --maxw:1160px;
-    --font:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
-    --serif:"Cormorant Garamond",serif;
+    --font:"Inter","Noto Sans JP","Zen Kaku Gothic Antique","Hiragino Kaku Gothic ProN",system-ui,sans-serif;
+    --serif:"Shippori Mincho","Cormorant Garamond",serif;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -184,6 +184,19 @@
     body{padding-bottom:64px}
   }
 </style>
+<!-- LLMO/GEO: 構造化データ（AI検索・生成AIの引用最適化）。FAQは言語に合わせてJSで更新 -->
+<script type="application/ld+json" id="faq-jsonld">
+{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en","mainEntity":[
+{"@type":"Question","name":"Do I need a reservation?","acceptedAnswer":{"@type":"Answer","text":"No. You can visit and shop without one. Booking ahead is optional, just to ensure we can assist you."}},
+{"@type":"Question","name":"What payment methods do you accept?","acceptedAnswer":{"@type":"Answer","text":"Credit cards are accepted. Please check available brands in store."}},
+{"@type":"Question","name":"How far is it from the nearest station?","acceptedAnswer":{"@type":"Answer","text":"About 5 min on foot from JR Asakusabashi / Bakurocho Sta., and about 10 min from JR Akihabara Sta."}},
+{"@type":"Question","name":"Can you assist in other languages?","acceptedAnswer":{"@type":"Answer","text":"Let us know your preferred language in the reservation form; we will assist as best we can."}},
+{"@type":"Question","name":"What are your opening hours?","acceptedAnswer":{"@type":"Answer","text":"10:00-16:00. We are open on weekends too."}}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Store","name":"KYOWA SHOP -AsaKusaBashi-","description":"Flagship store of Kyowa (founded 1948), a bag maker in Asakusabashi, Tokyo, 10 minutes from Akihabara.","image":"https://ajara-llc.github.io/kyowa-lp/images/store-exterior.jpg","url":"https://ajara-llc.github.io/kyowa-lp/","address":{"@type":"PostalAddress","postalCode":"101-0031","addressCountry":"JP","addressRegion":"Tokyo","addressLocality":"Chiyoda-ku","streetAddress":"Higashi-Kanda 2-10-16 WORKING FORT"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"10:00","closes":"16:00"},"paymentAccepted":"Credit Card","sameAs":["https://www.instagram.com/kyowa_shop/","https://www.kyowa-bag.co.jp/"]}
+</script>
 </head>
 <body>
 
@@ -199,9 +212,9 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-right">
-      <div class="lang" role="group" aria-label="Language">
-        <button data-lang="en" aria-pressed="true">EN</button>
-        <button data-lang="ja" aria-pressed="false">日本語</button>
+      <div class="lang" role="group" aria-label="Country / 国">
+        <button data-lang="en" aria-pressed="true" aria-label="USA / English"><span class="flag">🇺🇸</span> USA</button>
+        <button data-lang="ja" aria-pressed="false" aria-label="日本 / Japanese"><span class="flag">🇯🇵</span> 日本</button>
       </div>
       <a href="#reserve" class="btn nav-cta" data-i18n="nav.reserve">ご来店予約</a>
     </div>
@@ -236,7 +249,7 @@
   <section id="philosophy" class="section center" data-section="02-philosophy">
     <div class="wrap">
       <span class="eyebrow">Our Thought</span>
-      <p class="jp" data-i18n="phil.quote">「元気の出る」かばんを、つくってゆきたい。</p>
+      <p class="jp" data-i18n="phil.quote">元気の出るかばんを、つくりたい！</p>
       <p class="lead" data-i18n="phil.lead">かばんは、ただの道具ではありません。持つ人の気分を上げ、その日の装いを彩り、あなたらしさを映す相棒。私たちはそんな「特別なかばん」との出会いを、この店でお届けしています。</p>
     </div>
   </section>
@@ -320,7 +333,7 @@
       <div class="story-grid">
         <img class="ph ph-img" src="images/story-craft.jpg" alt="KYOWA の職人による縫製の様子" loading="lazy">
         <div class="steps">
-          <div class="step"><div class="n">01</div><h3 data-i18n="story.s1h">1967年からの技術</h3><p data-i18n="story.s1p">クラリーノ®ランドセルを手がけてきた協和が、60年におよぶ製造の技術をこのラインに注ぎます。</p></div>
+          <div class="step"><div class="n">01</div><h3 data-i18n="story.s1h">1948年創業のものづくり</h3><p data-i18n="story.s1p">1948年創業、クラリーノ®ランドセルも手がける協和が、長年の製造技術をこのラインに注ぎます。</p></div>
           <div class="step"><div class="n">02</div><h3 data-i18n="story.s2h">クラリーノ®という素材</h3><p data-i18n="story.s2p">水・汗・傷に強く、革のような風合いで軽やか。日本製の高品質な素材が、毎日の使いやすさを支えます。</p></div>
           <div class="step"><div class="n">03</div><h3 data-i18n="story.s3h">職人の手仕事</h3><p data-i18n="story.s3p">自社工場で、熟練の職人が一点ずつ丁寧に仕立てます。主張しすぎず、持つ人をそっと引き立てる仕上がりに。</p></div>
         </div>
@@ -363,8 +376,8 @@
         <h2 class="h2" data-i18n="map.h2">店舗へのご案内</h2>
       </div>
       <div class="map-grid">
-        <iframe class="map-frame" title="KYOWA SHOP Map"
-          src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E6%9D%B1%E7%A5%9E%E7%94%B02-10-16&output=embed"
+        <iframe id="mapFrame" class="map-frame" title="KYOWA SHOP Map"
+          src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E6%9D%B1%E7%A5%9E%E7%94%B02-10-16&hl=en&output=embed"
           loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="info-card">
           <div class="info-row"><div class="k">Access</div><div class="v"><ul>
@@ -372,7 +385,7 @@
             <li data-i18n="map.acc2">JR馬喰町駅 徒歩5分</li>
             <li data-i18n="map.acc3">JR秋葉原駅 徒歩10分</li>
           </ul></div></div>
-          <div class="info-row"><div class="k">Hours</div><div class="v" data-i18n="map.hours">月〜金 10:00 – 16:00（土日・祝休み）</div></div>
+          <div class="info-row"><div class="k">Hours</div><div class="v" data-i18n="map.hours">10:00 – 16:00（土日も営業）</div></div>
           <div class="info-row"><div class="k">Payment</div><div class="v" data-i18n="map.payment">クレジットカード</div></div>
           <div class="info-row"><div class="k">Address</div><div class="v">〒101-0031 東京都千代田区東神田2-10-16 WORKING FORT東神田</div></div>
         </div>
@@ -429,7 +442,7 @@
         <div class="faq-item"><button class="faq-q"><span data-i18n="faq.q2">支払い方法は？</span><span class="mk">+</span></button><div class="faq-a" data-i18n="faq.a2">クレジットカードがご利用いただけます。対応ブランドは店頭でご確認ください。</div></div>
         <div class="faq-item"><button class="faq-q"><span data-i18n="faq.q3">最寄り駅からどのくらいですか？</span><span class="mk">+</span></button><div class="faq-a" data-i18n="faq.a3">JR浅草橋駅・馬喰町駅から徒歩約5分、JR秋葉原駅から徒歩約10分です。</div></div>
         <div class="faq-item"><button class="faq-q"><span data-i18n="faq.q4">外国語での対応は可能ですか？</span><span class="mk">+</span></button><div class="faq-a" data-i18n="faq.a4">予約フォームで対応希望言語をお知らせください。可能な範囲でご案内いたします。</div></div>
-        <div class="faq-item"><button class="faq-q"><span data-i18n="faq.q5">営業時間を教えてください。</span><span class="mk">+</span></button><div class="faq-a" data-i18n="faq.a5">月〜金 10:00〜16:00です。土日・祝日はお休みです。</div></div>
+        <div class="faq-item"><button class="faq-q"><span data-i18n="faq.q5">営業時間を教えてください。</span><span class="mk">+</span></button><div class="faq-a" data-i18n="faq.a5">10:00〜16:00です。土日も営業しています。</div></div>
       </div>
     </div>
   </section>
@@ -439,7 +452,7 @@
 <footer>
   <div class="wrap">
     <div class="brand">KYOWA SHOP -AsaKusaBashi-</div>
-    <p>〒101-0031 東京都千代田区東神田2-10-16 WORKING FORT東神田 &nbsp;/&nbsp; Mon–Fri 10:00–16:00 (closed weekends &amp; holidays)<br>
+    <p>〒101-0031 東京都千代田区東神田2-10-16 WORKING FORT東神田 &nbsp;/&nbsp; 10:00–16:00（土日も営業）<br>
     株式会社協和 &nbsp;·&nbsp; <a href="https://www.kyowa-bag.co.jp/" target="_blank" rel="noopener">kyowa-bag.co.jp</a> &nbsp;·&nbsp; <a href="https://www.instagram.com/kyowa_shop/" target="_blank" rel="noopener">@kyowa_shop</a></p>
     <p class="fine" data-i18n="footer.fine">デモページ / Demo — 画像・文言・価格・埋め込みは確定後に差し替え</p>
   </div>
@@ -464,7 +477,7 @@
       "fv.h1":"毎日を、元気にするかばんに。",
       "fv.sub":"秋葉原から徒歩10分、浅草橋の旗艦店。色とりどりのラインナップを、実際に手に取ってお選びいただけます。",
       "colors.count":"50 を超えるカラー展開",
-      "phil.quote":"「元気の出る」かばんを、つくってゆきたい。",
+      "phil.quote":"元気の出るかばんを、つくりたい！",
       "phil.lead":"かばんは、ただの道具ではありません。持つ人の気分を上げ、その日の装いを彩り、あなたらしさを映す相棒。私たちはそんな「特別なかばん」との出会いを、この店でお届けしています。",
       "concept.h2":"職人の街に佇む、色の宝箱。",
       "concept.copy1":"東神田・浅草橋エリアの落ち着いた通りにある旗艦店。ゆったりとした店内で、定番から限定カラーまで、協和のものづくりをじっくりご覧いただけます。旅の途中に、あなただけの一点を見つけてください。",
@@ -477,13 +490,13 @@
       "colors.lead":"豊富なカラー展開が、協和のかばんの魅力。店頭では実際の色味を、光の下でお確かめいただけます。",
       "story.h2":"凛とした美しさを、日常へ。",
       "story.lead":"日常に凛とした美しさを求める大人のためのバッグ・アクセサリーライン。洗練されたデザインの中に、日本ならではの繊細な感覚と静かな品格を宿しています。",
-      "story.s1h":"1967年からの技術","story.s1p":"クラリーノ®ランドセルを手がけてきた協和が、60年におよぶ製造の技術をこのラインに注ぎます。",
+      "story.s1h":"1948年創業のものづくり","story.s1p":"1948年創業、クラリーノ®ランドセルも手がける協和が、長年の製造技術をこのラインに注ぎます。",
       "story.s2h":"クラリーノ®という素材","story.s2p":"水・汗・傷に強く、革のような風合いで軽やか。日本製の高品質な素材が、毎日の使いやすさを支えます。",
       "story.s3h":"職人の手仕事","story.s3p":"自社工場で、熟練の職人が一点ずつ丁寧に仕立てます。主張しすぎず、持つ人をそっと引き立てる仕上がりに。",
       "sns.h2":"SNSでも紹介されています","sns.lead":"来店・商品を紹介いただいた投稿。各枠に投稿URL（permalink）を貼るだけで埋め込めます。","sns.slot":"投稿URLを貼るだけ","sns.cta":"Instagramで見る（@kyowa_shop）",
       "map.h2":"店舗へのご案内",
       "map.acc1":"JR浅草橋駅 徒歩5分","map.acc2":"JR馬喰町駅 徒歩5分","map.acc3":"JR秋葉原駅 徒歩10分",
-      "map.hours":"月〜金 10:00 – 16:00（土日・祝休み）","map.payment":"クレジットカード",
+      "map.hours":"10:00 – 16:00（土日も営業）","map.payment":"クレジットカード",
       "rsv.h2":"ご来店の予約","rsv.lead":"日時をお知らせいただければ、スムーズにご案内いたします。",
       "rsv.note":"ご予約なしでもご入店・ご購入いただけます。事前予約は、確実にご案内するための任意のご連絡です。",
       "f.name":"お名前","f.email":"メール","f.date":"希望日","f.time":"希望時間","f.select":"選択してください","f.people":"人数","f.lang":"対応言語","f.msg":"ご要望（任意）","f.submit":"この内容で予約する",
@@ -493,7 +506,7 @@
       "faq.q2":"支払い方法は？","faq.a2":"クレジットカードがご利用いただけます。対応ブランドは店頭でご確認ください。",
       "faq.q3":"最寄り駅からどのくらいですか？","faq.a3":"JR浅草橋駅・馬喰町駅から徒歩約5分、JR秋葉原駅から徒歩約10分です。",
       "faq.q4":"外国語での対応は可能ですか？","faq.a4":"予約フォームで対応希望言語をお知らせください。可能な範囲でご案内いたします。",
-      "faq.q5":"営業時間を教えてください。","faq.a5":"月〜金 10:00〜16:00です。土日・祝日はお休みです。",
+      "faq.q5":"営業時間を教えてください。","faq.a5":"10:00〜16:00です。土日も営業しています。",
       "footer.fine":"デモページ / Demo — 画像・文言・価格・埋め込みは確定後に差し替え","sticky.strong":"元気の出るかばんに会いに。"
     },
     en: {
@@ -514,13 +527,13 @@
       "colors.lead":"A wide range of colors is the charm of Kyowa bags. In store, check the real hues under natural light.",
       "story.h2":"Dignified beauty, for everyday life.",
       "story.lead":"A line of bags and accessories for adults who seek dignified beauty in daily life. Refined design carries Japan's delicate sensibility and quiet elegance.",
-      "story.s1h":"Craft since 1967","story.s1p":"Kyowa, maker of Clarino® randoseru school bags, brings six decades of manufacturing expertise to this line.",
+      "story.s1h":"Craftsmanship since 1948","story.s1p":"Founded in 1948, Kyowa — also a maker of Clarino® randoseru — brings decades of manufacturing expertise to this line.",
       "story.s2h":"The material: Clarino®","story.s2p":"Resistant to water, sweat and scratches, with a leather-like feel yet light. This high-quality Japanese material makes everyday use easy.",
       "story.s3h":"Handcrafted by artisans","story.s3p":"In our own factory, skilled artisans craft each piece with care — understated, gently elevating the one who carries it.",
       "sns.h2":"As featured on social media","sns.lead":"Posts featuring visits and products. Just paste each post's URL (permalink) into a frame to embed it.","sns.slot":"Paste a post URL","sns.cta":"View on Instagram (@kyowa_shop)",
       "map.h2":"Access",
       "map.acc1":"5 min walk from JR Asakusabashi Sta.","map.acc2":"5 min walk from JR Bakurocho Sta.","map.acc3":"10 min walk from JR Akihabara Sta.",
-      "map.hours":"Mon–Fri 10:00 – 16:00 (closed weekends & public holidays)","map.payment":"Credit cards",
+      "map.hours":"10:00 – 16:00 (open on weekends too)","map.payment":"Credit cards",
       "rsv.h2":"Reserve your visit","rsv.lead":"Let us know your preferred date and time for a smooth visit.",
       "rsv.note":"You are welcome to visit and shop without a reservation. Booking ahead is optional — just to make sure we can assist you.",
       "f.name":"Name","f.email":"Email","f.date":"Preferred date","f.time":"Preferred time","f.select":"Please select","f.people":"Guests","f.lang":"Language","f.msg":"Message (optional)","f.submit":"Reserve",
@@ -530,10 +543,25 @@
       "faq.q2":"What payment methods do you accept?","faq.a2":"Credit cards are accepted. Please check available brands in store.",
       "faq.q3":"How far is it from the nearest station?","faq.a3":"About 5 min on foot from JR Asakusabashi / Bakurocho Sta., and about 10 min from JR Akihabara Sta.",
       "faq.q4":"Can you assist in other languages?","faq.a4":"Let us know your preferred language in the reservation form; we will assist as best we can.",
-      "faq.q5":"What are your opening hours?","faq.a5":"Mon–Fri, 10:00–16:00. Closed on weekends and public holidays.",
+      "faq.q5":"What are your opening hours?","faq.a5":"10:00–16:00. We are open on weekends too.",
       "footer.fine":"Demo page — images, copy, prices and embeds to be replaced.","sticky.strong":"Come meet a bag that lifts your spirits."
     }
   };
+
+  // 住所（Google Map 用・URLエンコード済み）
+  var MAP_Q = "%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E6%9D%B1%E7%A5%9E%E7%94%B02-10-16";
+
+  function buildFaqSchema(dict, lang){
+    try{
+      var qa=[];
+      for(var i=1;i<=5;i++){
+        var q=dict['faq.q'+i], a=dict['faq.a'+i];
+        if(q&&a) qa.push({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}});
+      }
+      var el=document.getElementById('faq-jsonld');
+      if(el) el.textContent = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","inLanguage":lang,"mainEntity":qa});
+    }catch(e){}
+  }
 
   function applyLang(lang){
     var dict = I18N[lang] || I18N.ja;
@@ -545,6 +573,11 @@
     document.querySelectorAll('.lang button').forEach(function(b){
       b.setAttribute('aria-pressed', b.getAttribute('data-lang')===lang ? 'true':'false');
     });
+    // ① 地図の表示言語も切り替える（hl パラメータ）
+    var mf = document.getElementById('mapFrame');
+    if(mf) mf.src = "https://www.google.com/maps?q=" + MAP_Q + "&hl=" + lang + "&output=embed";
+    // ③ FAQ 構造化データを表示言語に同期
+    buildFaqSchema(dict, lang);
     try{ localStorage.setItem('kyowa_lang', lang); }catch(e){}
   }
 
