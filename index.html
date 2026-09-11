@@ -561,13 +561,42 @@
     q.addEventListener('click', function(){ q.parentElement.classList.toggle('open'); });
   });
 
-  // 予約フォーム（デモ：送信はダミー）
+  // ===== 予約フォーム: Google Form 送信（遷移なし・自前デザインのまま） =====
+  // 本番化手順:
+  //   1) Google Form を作成（項目: 名前/メール/希望日/希望時間/人数/言語/要望）
+  //   2) 右上「⋮」→「事前入力したURLを取得」で各項目に仮の値を入れて生成
+  //   3) 生成URLの各 entry.数字 を下の fields に対応づける
+  //   4) GFORM.action にフォームの送信先を設定:
+  //        https://docs.google.com/forms/d/e/＜FORM_ID＞/formResponse
+  //   action が空の間はデモ表示のみ（送信しない）。
+  var GFORM = {
+    action: "",  // 例: "https://docs.google.com/forms/d/e/XXXXXXXX/formResponse"
+    fields: {
+      name:  "entry.____",
+      email: "entry.____",
+      date:  "entry.____",
+      time:  "entry.____",
+      people:"entry.____",
+      lang:  "entry.____",
+      msg:   "entry.____"
+    }
+  };
   var form = document.getElementById('reserveForm');
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    if(!form.name.value || !form.email.value){ form.reportValidity(); return; }
+    if(!form.elements['name'].value || !form.elements['email'].value){ form.reportValidity(); return; }
+    if(GFORM.action){
+      var body = new URLSearchParams();
+      Object.keys(GFORM.fields).forEach(function(k){
+        var el = form.elements[k];
+        if(el && GFORM.fields[k].indexOf('entry.') === 0) body.append(GFORM.fields[k], el.value);
+      });
+      // Google Form は CORS 応答を返さないため no-cors で送信（送信自体は成立）
+      fetch(GFORM.action, { method:"POST", mode:"no-cors", body: body }).catch(function(){});
+      try{ (window.dataLayer = window.dataLayer || []).push({event:"reserve_submit"}); }catch(_){}
+      form.reset();
+    }
     document.getElementById('formOk').style.display = 'block';
-    // 実装時: ここで送信 & 計測イベント（例 dataLayer.push({event:'reserve_submit'}))
   });
 
   /*
