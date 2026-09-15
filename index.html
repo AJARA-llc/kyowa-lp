@@ -631,18 +631,20 @@
   //   3) 生成URLの各 entry.数字 を下の fields に対応づける
   //   4) GFORM.action にフォームの送信先を設定:
   //        https://docs.google.com/forms/d/e/＜FORM_ID＞/formResponse
-  //   action が空の間はデモ表示のみ（送信しない）。
+  //   action が空の間はデモ表示のみ（送信しない）。設定済み: 2026-09-15 テスト用フォーム（協和様本番用に差し替え可）。
   var GFORM = {
-    action: "",  // 例: "https://docs.google.com/forms/d/e/XXXXXXXX/formResponse"
+    action: "https://docs.google.com/forms/d/e/1FAIpQLScDwFd631vffjSBX-EwkyeDm4RufkqmCDqdNyhcss8F_29lgA/formResponse",
     fields: {
-      name:  "entry.____",
-      email: "entry.____",
-      date:  "entry.____",
-      time:  "entry.____",
-      people:"entry.____",
-      country: "entry.____",
-      msg:   "entry.____"
-    }
+      name:   "entry.2124330655",
+      email:  "entry.1587836582",
+      date:   "entry.2053458529",   // Google Form 側が「日付」型 → _year/_month/_day に分割して送る
+      time:   "entry.1649893968",   // Google Form 側が「時刻」型 → _hour/_minute に分割して送る
+      people: "entry.956481806",
+      country:"entry.440441426",
+      msg:    "entry.15743205"
+    },
+    dateFields: ["date"],
+    timeFields: ["time"]
   };
   var form = document.getElementById('reserveForm');
   form.addEventListener('submit', function(e){
@@ -651,8 +653,17 @@
     if(GFORM.action){
       var body = new URLSearchParams();
       Object.keys(GFORM.fields).forEach(function(k){
-        var el = form.elements[k];
-        if(el && GFORM.fields[k].indexOf('entry.') === 0) body.append(GFORM.fields[k], el.value);
+        var el = form.elements[k], id = GFORM.fields[k];
+        if(!el || id.indexOf('entry.') !== 0 || !el.value) return;
+        if(GFORM.dateFields.indexOf(k) >= 0){            // "2026-09-20" -> year/month/day
+          var d = el.value.split('-');
+          if(d.length === 3){ body.append(id+'_year', d[0]); body.append(id+'_month', String(+d[1])); body.append(id+'_day', String(+d[2])); }
+        } else if(GFORM.timeFields.indexOf(k) >= 0){     // "11:00" -> hour/minute
+          var t = el.value.split(':');
+          if(t.length === 2){ body.append(id+'_hour', String(+t[0])); body.append(id+'_minute', String(+t[1])); }
+        } else {
+          body.append(id, el.value);
+        }
       });
       // Google Form は CORS 応答を返さないため no-cors で送信（送信自体は成立）
       fetch(GFORM.action, { method:"POST", mode:"no-cors", body: body }).catch(function(){});
