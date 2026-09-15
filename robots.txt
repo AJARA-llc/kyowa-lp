@@ -22,4 +22,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://ajara-llc.github.io/kyowa-lp/sitemap.xml
+Sitemap: https://ajara-llc.github.io/kyowa-shop-lp/sitemap.xml
